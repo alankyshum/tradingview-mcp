@@ -38,13 +38,13 @@ if "%TV_EXE%"=="" (
     echo Checked: %%LOCALAPPDATA%%\TradingView, %%PROGRAMFILES%%\TradingView, WindowsApps
     echo.
     echo If installed elsewhere, run manually:
-    echo   "C:\path\to\TradingView.exe" --remote-debugging-port=%PORT%
+    echo   "C:\path\to\TradingView.exe" --remote-debugging-port=%PORT% --remote-debugging-address=127.0.0.1
     exit /b 1
 )
 
 echo Found TradingView at: %TV_EXE%
-echo Starting with --remote-debugging-port=%PORT%...
-start "" "%TV_EXE%" --remote-debugging-port=%PORT%
+echo Starting with --remote-debugging-port=%PORT% --remote-debugging-address=127.0.0.1...
+start "" "%TV_EXE%" --remote-debugging-port=%PORT% --remote-debugging-address=127.0.0.1
 
 echo Waiting for CDP to become available...
 ping -n 6 127.0.0.1 >nul

@@ -39,7 +39,7 @@ if [ -z "$APP" ] || [ ! -f "$APP" ]; then
   echo "Checked: /opt/TradingView, ~/.local/share/TradingView, snap, flatpak, PATH"
   echo ""
   echo "If installed elsewhere, run manually:"
-  echo "  /path/to/tradingview --remote-debugging-port=$PORT"
+  echo "  /path/to/tradingview --remote-debugging-port=$PORT --remote-debugging-address=127.0.0.1"
   exit 1
 fi
 
@@ -48,8 +48,8 @@ pkill -f "[Tt]rading[Vv]iew" 2>/dev/null
 sleep 1
 
 echo "Found TradingView at: $APP"
-echo "Launching with --remote-debugging-port=$PORT ..."
-"$APP" --remote-debugging-port=$PORT &
+echo "Launching with --remote-debugging-port=$PORT --remote-debugging-address=127.0.0.1 ..."
+"$APP" --remote-debugging-port=$PORT --remote-debugging-address=127.0.0.1 &
 TV_PID=$!
 echo "PID: $TV_PID"
 
