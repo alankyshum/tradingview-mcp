@@ -1,0 +1,3 @@
+//@version=6
+indicator("Pine Check Broken", overlay = false)
+plot(does_not_exist)
